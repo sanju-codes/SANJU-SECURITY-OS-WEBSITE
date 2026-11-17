@@ -17,7 +17,7 @@
     <a class="brand" href="#home" aria-label="SANJU SECURITY OS home"><span class="brand-mark">S<span>◆</span></span><span>SANJU <b>SECURITY OS</b></span></a>
     <button class="menu-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
     <nav class="nav">
-      <a href="#features">CAPABILITIES</a><a href="#architecture">ARCHITECTURE</a><a href="#roadmap">ROADMAP</a><a class="nav-cta" href="https://github.com/sanju-codes/SANJU-OS" target="_blank" rel="noreferrer">VIEW PROJECT ↗</a>
+      <a href="#features">CAPABILITIES</a><a href="#architecture">ARCHITECTURE</a><a href="#roadmap">ROADMAP</a><a href="#command-center">LAB DEMO</a><a class="nav-cta" href="https://github.com/sanju-codes/SANJU-OS" target="_blank" rel="noreferrer">VIEW PROJECT ↗</a>
     </nav>
   </header>
 
@@ -70,9 +70,32 @@
       <div class="timeline"><div class="milestone"><span class="milestone-no">PHASE 01</span><div><h3>FOUNDATION</h3><p>Debian base, repository structure and core system design.</p></div><span class="milestone-state">PROJECT BASE</span></div><div class="milestone"><span class="milestone-no">PHASE 02</span><div><h3>DESKTOP EXPERIENCE</h3><p>Custom visual identity, desktop workflow and usability refinement.</p></div><span class="milestone-state">PLANNED</span></div><div class="milestone"><span class="milestone-no">PHASE 03</span><div><h3>FORENSIC TOOLKIT</h3><p>Curated investigation, storage and analysis toolsets.</p></div><span class="milestone-state">PLANNED</span></div><div class="milestone"><span class="milestone-no">PHASE 04</span><div><h3>TESTING &amp; RELEASE</h3><p>Hardware validation, documentation and reproducible ISO releases.</p></div><span class="milestone-state">PLANNED</span></div></div>
     </section>
 
-    <section class="closing"><div class="closing-glow"></div><p class="eyebrow">THE PROJECT STARTS WITH CURIOSITY</p><h2>THINK DEEPER.<br><em>INVESTIGATE FURTHER.</em></h2><a class="button primary" href="https://github.com/sanju-codes/SANJU-OS" target="_blank" rel="noreferrer">VISIT SANJU SECURITY OS ↗</a></section>
+
+    <section class="command-center section-pad" id="command-center">
+      <div class="section-head"><div><p class="eyebrow">[ 05 — INTERACTIVE LAB ]</p><h2>THE <em>COMMAND CENTER.</em></h2></div><p class="section-desc">Explore a simulated terminal preview and discover the intended workflow. This demo runs locally in your browser and does not execute system commands.</p></div>
+      <div class="lab-grid">
+        <div class="terminal-card">
+          <div class="terminal-top"><div class="terminal-dots"><i></i><i></i><i></i></div><span>SANJU-LAB / SIMULATOR</span><span class="terminal-live">● DEMO</span></div>
+          <div class="terminal-body" id="terminal-output" aria-live="polite"><p><span class="term-muted">SANJU SECURITY OS [browser simulation]</span></p><p>Welcome to the interactive project preview.</p><p><span class="term-prompt">sanju@security-os:~$</span> <span class="term-command">help</span></p><p class="term-success">Available demo commands: help, about, modules, status, clear</p></div>
+          <form class="terminal-input-row" id="terminal-form"><label for="terminal-input">sanju@security-os:~$</label><input id="terminal-input" autocomplete="off" spellcheck="false" placeholder="type help and press Enter" aria-label="Demo terminal command"><button type="submit">RUN ↵</button></form>
+        </div>
+        <div class="lab-side"><div class="lab-stat"><span class="lab-stat-icon">◈</span><div><b>MODULAR BY DESIGN</b><p>Separate research areas with a unified desktop direction.</p></div></div><div class="lab-stat"><span class="lab-stat-icon">⌁</span><div><b>OFFLINE WORKFLOW GOAL</b><p>Plan for core tools and local documentation without constant connectivity.</p></div></div><div class="lab-stat"><span class="lab-stat-icon">⛨</span><div><b>RESPONSIBLE RESEARCH</b><p>Use tools only on systems and networks you own or are authorized to test.</p></div></div></div>
+      </div>
+    </section>
+
+    <section class="faq section-pad" id="faq">
+      <div class="section-head"><div><p class="eyebrow">[ 06 — PROJECT FAQ ]</p><h2>QUESTIONS.<br><em>ANSWERED.</em></h2></div><p class="section-desc">A quick guide to the project direction, compatibility goals and release status.</p></div>
+      <div class="faq-list">
+        <details><summary>Is SANJU SECURITY OS ready to install?<span>＋</span></summary><p>The project is in development. Check the main OS repository for verified build instructions and published releases before attempting installation.</p></details>
+        <details><summary>Which Linux distribution is the base?<span>＋</span></summary><p>The current project target is Debian 13 (Trixie). Desktop components and package selections may change as development progresses.</p></details>
+        <details><summary>Will Windows applications work?<span>＋</span></summary><p>The direction is a hybrid approach using Wine/Bottles for suitable applications and a Windows virtual machine where full Windows compatibility is required. Compatibility is application- and hardware-dependent.</p></details>
+        <details><summary>Does the project support SDR hardware?<span>＋</span></summary><p>SDR support is a planned research area. Device support depends on the hardware, drivers and selected software packages.</p></details>
+        <details><summary>Where can I report a bug or contribute?<span>＋</span></summary><p>Visit the GitHub repository to review the project, open an issue or follow development updates.</p></details>
+      </div>
+    </section>
+\n    <section class="closing"><div class="closing-glow"></div><p class="eyebrow">THE PROJECT STARTS WITH CURIOSITY</p><h2>THINK DEEPER.<br><em>INVESTIGATE FURTHER.</em></h2><a class="button primary" href="https://github.com/sanju-codes/SANJU-OS" target="_blank" rel="noreferrer">VISIT SANJU SECURITY OS ↗</a></section>
   </main>
-  <footer><a class="brand" href="#home"><span class="brand-mark">S<span>◆</span></span><span>SANJU <b>SECURITY OS</b></span></a><p>INDEPENDENT PROJECT · BUILT FOR RESPONSIBLE RESEARCH</p><span>© <span id="year"></span> SANJU SECURITY OS</span></footer>
+  <button class="back-to-top" id="back-to-top" aria-label="Back to top">↑</button>\n  <footer><a class="brand" href="#home"><span class="brand-mark">S<span>◆</span></span><span>SANJU <b>SECURITY OS</b></span></a><p>INDEPENDENT PROJECT · BUILT FOR RESPONSIBLE RESEARCH</p><span>© <span id="year"></span> SANJU SECURITY OS</span></footer>
   <script src="main.js"></script>
 </body>
 </html>
