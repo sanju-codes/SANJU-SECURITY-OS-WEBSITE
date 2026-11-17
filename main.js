@@ -70,4 +70,60 @@
   }
   draw();
   window.addEventListener('resize',()=>{if(reduced)draw();},{passive:true});
-})();
+
+  // Safe browser-only terminal simulator: commands are illustrative and never executed by the OS.
+  const terminalForm = document.getElementById('terminal-form');
+  const terminalInput = document.getElementById('terminal-input');
+  const terminalOutput = document.getElementById('terminal-output');
+  if (terminalForm && terminalInput && terminalOutput) {
+    const commands = {
+      help: ['Available commands:', 'help     Show this help', 'about    About the project', 'modules  List planned research areas', 'status   Show project status', 'clear    Clear this demo terminal'],
+      about: ['SANJU SECURITY OS', 'A Debian 13-based security and digital-forensics workstation concept.', 'This terminal is a simulated website demo.'],
+      modules: ['CYBERSECURITY  | Authorized security learning and testing', 'FORENSICS      | Evidence and filesystem examination', 'RECOVERY       | Storage diagnostics and data restoration', 'SDR            | RF and signal research', 'VM             | Windows virtual-machine workflows', 'OFFLINE        | Offline-first lab design goal'],
+      status: ['PROJECT: IN DEVELOPMENT', 'BASE: Debian 13 (Trixie) target', 'WEBSITE: Interactive demo mode', 'RELEASE: Check the main OS repository for verified releases']
+    };
+    terminalForm.addEventListener('submit', event => {
+      event.preventDefault();
+      const command = terminalInput.value.trim().toLowerCase();
+      if (!command) return;
+      const line = document.createElement('p');
+      line.innerHTML = '<span class="term-prompt">sanju@security-os:~$</span> ';
+      const safeCommand = document.createElement('span');
+      safeCommand.className = 'term-command';
+      safeCommand.textContent = command;
+      line.appendChild(safeCommand);
+      terminalOutput.appendChild(line);
+      if (command === 'clear') {
+        terminalOutput.innerHTML = '<p><span class="term-muted">Terminal cleared. Type help to see available demo commands.</span></p>';
+      } else {
+        const lines = commands[command] || ['Command not found. This is a limited simulator; type help.'];
+        lines.forEach((item, index) => {
+          const p = document.createElement('p');
+          p.textContent = item;
+          if (!commands[command]) p.className = 'term-error';
+          else if (index === 0) p.className = 'term-success';
+          terminalOutput.appendChild(p);
+        });
+      }
+      terminalOutput.scrollTop = terminalOutput.scrollHeight;
+      terminalInput.value = '';
+    });
+  }
+
+  // Reveal-on-scroll and back-to-top controls.
+  const revealTargets = document.querySelectorAll('.feature-card, .milestone, .lab-stat, .faq-list details, .spec-panel');
+  revealTargets.forEach(node => node.classList.add('reveal'));
+  if ('IntersectionObserver' in window && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    const observer = new IntersectionObserver(entries => entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); }
+    }), {threshold: 0.12});
+    revealTargets.forEach(node => observer.observe(node));
+  } else revealTargets.forEach(node => node.classList.add('is-visible'));
+  const topButton = document.getElementById('back-to-top');
+  if (topButton) {
+    const updateTopButton = () => topButton.classList.toggle('visible', window.scrollY > 500);
+    window.addEventListener('scroll', updateTopButton, {passive:true});
+    updateTopButton();
+    topButton.addEventListener('click', () => window.scrollTo({top:0,behavior:'smooth'}));
+  }
+\n})();
